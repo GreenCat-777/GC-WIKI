@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The GC-Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean look -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">THE <span class="accent">GC-WIKI</span></div>
+        <nav>
+            <!-- Added ID to search bar for JavaScript functionality -->
+            <input type="text" id="search-bar" placeholder="Search knowledge..." class="search-bar">
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="./aboutus.html">About Us</a></li>
+                <!-- Updated dropdown menu to link to qa.html -->
+                <li class="dropdown">
+                    <div class="dropdown-header">
+                        <a href="./database.html">Database</a>
+                        <button class="dropdown-arrow" onclick="toggleDropdown(event)">▼</button>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="./database/qa.html">QuickAlpine</a></li>
+                        <!-- Add more database pages here -->
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="home">
+                <h1>Welcome to the GC-Wiki</h1>
+                <p class="subtitle">Last Updated: January 4 2026</p>
+                <hr>
+                <p>This is the central repository for all <strong>GC Project</strong> documentation. Navigate through the sidebar to access specific modules or use the search bar above.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 GreenCat777 | Educational purposes only. Not affiliated with Amazon. Users responsible for compliance with applicable laws.</p>
+    </footer>
+
+    <!-- Added search functionality and dropdown toggle -->
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = event.target.closest('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Search functionality
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBar.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+                if (query) {
+                    // Define searchable pages with their content keywords
+                    const pages = [
+                        { url: './index.html', keywords: ['home', 'welcome', 'gc-wiki', 'gc project', 'documentation'] },
+                        { url: './aboutus.html', keywords: ['about', 'greencat777', 'founder', 'bio'] },
+                        { url: './database.html', keywords: ['database', 'projects', 'organized'] },
+                        { url: './database/qa.html', keywords: ['quickalpine', 'alpine', 'linux', 'kindle', 'install', 'qa'] }
+                    ];
+                    
+                    // Find the best match
+                    for (let page of pages) {
+                        if (page.keywords.some(keyword => keyword.includes(query) || query.includes(keyword))) {
+                            window.location.href = page.url;
+                            return;
+                        }
+                    }
+                    
+                    // If no match found, alert user
+                    alert('No results found for: ' + query);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
