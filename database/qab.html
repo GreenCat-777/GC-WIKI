@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database | The GC-Wiki</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a clean look -->
+    <title>QuickAlpineBetter | The GC-Wiki</title>
+    <link rel="stylesheet" href="../style.css">
     <link href="fonts.googleapis.com" rel="stylesheet">
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -22,16 +23,16 @@
         <aside class="sidebar">
             <h3>Navigation</h3>
             <ul>
-                <li><a href="./">Home</a></li>
-                <li><a href="./aboutus.html">About Us</a></li>
-                <!-- Added active class to database link and updated to qa.html -->
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../aboutus.html">About Us</a></li>
                 <li class="dropdown active">
                     <div class="dropdown-header">
-                        <a href="./database.html" class="active">Database</a>
+                        <a href="../database.html">Database</a>
                         <button class="dropdown-arrow" onclick="toggleDropdown(event)">▼</button>
                     </div>
                     <ul class="dropdown-menu">
-                        <li><a href="./database/qa.html">QuickAlpine</a></li>
+                        <li><a href="./qa.html" class="active">QuickAlpine</a></li>
+                        <li><a href="./qab.html" class="active">QuickAlpineBetter</a></li>
                         <!-- Add more database pages here -->
                     </ul>
                 </li>
@@ -39,12 +40,8 @@
         </aside>
 
         <main class="content">
-            <section id="database">
-                <h1>Welcome to the Database.</h1>
-                <p class="subtitle">Last Updated: January 4 2026</p>
-                <hr>
-                <p>This is the Database meant to keep all of GreenCat777's projects organized and have proper documentation.
-                    You can look through the pages in the dropdown menu.</p>
+            <section id="markdown-content">
+                <!-- Markdown will be rendered here -->
             </section>
         </main>
     </div>
@@ -53,8 +50,28 @@
         <p>&copy; 2026 GreenCat777 | Educational purposes only. Not affiliated with Amazon. Users responsible for compliance with applicable laws.</p>
     </footer>
 
-    <!-- Added search functionality and dropdown toggle -->
     <script>
+        // Sample markdown content - replace this with fetch from .md file
+        const markdownContent = `# QuickAlpineBetter
+Latest Version 4.1
+## Instructions:
+[Download]() the latest version
+
+Copy to /documents (/mnt/us/documents for ssh users)
+
+Run the install booklet on the homescreen.
+
+## How it came to be
+I made this becaue some people might want the newer version of alpine, and so to make it easy for them.
+
+## Changelog over time
+1.0 - Released synced to QuickAlpine 2.0
+4.1 - syncing with QuickAlpine 4.1
+`;
+
+        // Render the markdown
+        document.getElementById('markdown-content').innerHTML = marked.parse(markdownContent);
+
         function toggleDropdown(event) {
             event.preventDefault();
             event.stopPropagation();
@@ -62,7 +79,6 @@
             dropdown.classList.toggle('active');
         }
 
-        // Search functionality
         const searchBar = document.getElementById('search-bar');
         
         searchBar.addEventListener('keypress', function(e) {
@@ -71,11 +87,11 @@
                 if (query) {
                     // Define searchable pages with their content keywords
                     const pages = [
-                        { url: './index.html', keywords: ['home', 'welcome', 'gc-wiki', 'gc project', 'documentation'] },
-                        { url: './aboutus.html', keywords: ['about', 'greencat777', 'founder', 'bio'] },
-                        { url: './database.html', keywords: ['database', 'projects', 'organized'] },
-                        { url: './database/qa.html', keywords: ['quickalpine', 'alpine', 'linux', 'kindle', 'install', 'qa'] }
-                        { url: './database/qab.html', keywords: ['quickalpinebetter', 'alpine', 'linux', 'kindle', 'install', 'qa', 'better'] }
+                        { url: '../index.html', keywords: ['home', 'welcome', 'gc-wiki', 'gc project', 'documentation'] },
+                        { url: '../aboutus.html', keywords: ['about', 'greencat777', 'founder', 'bio'] },
+                        { url: '../database.html', keywords: ['database', 'projects', 'organized'] },
+                        { url: './qa.html', keywords: ['quickalpine', 'alpine', 'linux', 'kindle', 'install', 'qa'] }
+                        { url: './qab.html', keywords: ['quickalpinebetter', 'alpine', 'linux', 'kindle', 'install', 'qa', 'better'] }
                     ];
                     
                     // Find the best match
