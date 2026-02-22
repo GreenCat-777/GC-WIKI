@@ -1,98 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The GC-Wiki</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a clean look -->
-    <link href="fonts.googleapis.com" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GC-Wiki | Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="logo">THE <span class="accent">GC-WIKI</span></div>
-        <nav>
-            <!-- Added ID to search bar for JavaScript functionality -->
-            <input type="text" id="search-bar" placeholder="Search knowledge..." class="search-bar">
-        </nav>
-    </header>
+  <main class="main-wrapper">
+    <h1 class="section-title">Welcome to the GC-Wiki</h1>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h3>Navigation</h3>
-            <ul>
-                <li><a href="./" class="active">Home</a></li>
-                <li><a href="./aboutus.html">About Us</a></li>
-                <!-- Updated dropdown menu to link to qa.html -->
-                <li class="dropdown">
-                    <div class="dropdown-header">
-                        <a href="./database.html">Database</a>
-                        <button class="dropdown-arrow" onclick="toggleDropdown(event)">▼</button>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li><a href="./database/qa.html">QuickAlpine</a></li>
-                        <!-- Add more database pages here -->
-                    </ul>
-                </li>
-            </ul>
-        </aside>
+    <div id="cardContainer" class="card-grid"></div>
+  </main>
 
-        <main class="content">
-            <section id="home">
-                <h1>Welcome to the GC-Wiki</h1>
-                <p class="subtitle">Last Updated: January 4 2026</p>
-                <hr>
-                <p>This is the central repository for all <strong>GC Project</strong> documentation. Navigate through the sidebar to access specific modules or use the search bar above.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+<script>
+/* ============================= */
+/* EDIT THIS LIST TO ADD PAGES  */
+/* ============================= */
+
+const pages = [
+  {
+    url: "useful-utilities.html",
+    title: "Useful Utilities",
+    description: "Some Utilities that may be useful on your Kindle, not all are made by me",
+    category: " "
+  },
+  {
+    url: "quick.html",
+    title: "QuickLinuxes",
+    description: "Applications to install, launch, and uninstall certain Linux distros on your Kindle.",
+    category: " "
+  },
+  {
+    url: "quickalpine.html",
+    title: "QuickAlpine",
+    description: "Quickly and easily install, uninstall, and launch Alpine Linux on your Kindle.",
+    category: " "
+  },
+  {
+    url: "https://gc-bio.vercel.app/social/",
+    title: "Contact",
+    description: " ",
+    category: " "
+  }
+];
+
+/* ============================= */
+/* AUTO CARD GENERATOR          */
+/* ============================= */
+
+const container = document.getElementById("cardContainer");
+
+pages.forEach(page => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  card.innerHTML = `
+    <h2 class="card-title">${page.title}</h2>
+    <p class="card-desc">${page.description}</p>
+    <div class="card-meta">${page.category}</div>
+    <div class="card-links">
+      <a href="${page.url}">Open →</a>
     </div>
+  `;
 
-    <footer>
-        <p>&copy; 2026 GreenCat777 | Educational purposes only. Not affiliated with Amazon. Users responsible for compliance with applicable laws.</p>
-    </footer>
-
-    <!-- Added search functionality and dropdown toggle -->
-    <script>
-        function toggleDropdown(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const dropdown = event.target.closest('.dropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        // Search functionality
-        const searchBar = document.getElementById('search-bar');
-        
-        searchBar.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const query = this.value.toLowerCase().trim();
-                if (query) {
-                    // Define searchable pages with their content keywords
-                    const pages = [
-                        { url: './index.html', keywords: ['home', 'welcome', 'gc-wiki', 'gc project', 'documentation'] },
-                        { url: './aboutus.html', keywords: ['about', 'greencat777', 'founder', 'bio'] },
-                        { url: './database.html', keywords: ['database', 'projects', 'organized'] },
-                        { url: './database/qa.html', keywords: ['quickalpine', 'alpine', 'linux', 'kindle', 'install', 'qa'] }
-                        { url: './database/qab.html', keywords: ['quickalpinebetter', 'alpine', 'linux', 'kindle', 'install', 'qa', 'better'] }
-                    ];
-                    
-                    // Find the best match
-                    for (let page of pages) {
-                        if (page.keywords.some(keyword => keyword.includes(query) || query.includes(keyword))) {
-                            window.location.href = page.url;
-                            return;
-                        }
-                    }
-                    
-                    // If no match found, alert user
-                    alert('No results found for: ' + query);
-                }
-            }
-        });
-    </script>
-
+  container.appendChild(card);
+});
+</script>
+<footer class="legal-disclaimer">Educational purposes only. Not affiliated with Amazon. Users responsible for compliance with applicable laws. <a href="https://github.com/NemesisHubris/kindlemodshelf.me" target="_blank" rel="noopener">View Source on GitHub</a></footer>
 </body>
 </html>
