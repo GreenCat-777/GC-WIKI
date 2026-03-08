@@ -2,39 +2,46 @@
 /* OLED BLACK + GREEN THEME     */
 /* Libre Baskerville Edition    */
 /* ============================= */
-
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
-
 :root {
   --bg: #000000;
   --bg-base: #000000;
-  --fg: #eaeaea;
-  --muted: #ffffff;
-
+  --fg: #0fe54b;
+  --muted: #0fe54b;
   --primary: #0fe54b;
   --secondary: #12ff58;
-
   --card-bg: #050505;
   --card-border: #111111;
   --section-border: #111111;
-
   --button-bg: #070707;
   --button-border: #151515;
-  --button-text: #ffffff;
-
+  --button-text: #0fe54b;
   --input-bg: #050505;
   --input-border: #151515;
-
   --link-color: #0fe54b;
   --link-hover: #12ff58;
   --link-border: rgba(15, 229, 75, 0.35);
   --link-hover-border: #0fe54b;
-
-  --card-title: #ffffff;
-  --card-desc: #ffffff;
-
+  --card-title: #0fe54b;
+  --card-desc: #0fe54b;
   --tag-bg: #060606;
   --tag-outline: #141414;
+  --tag-fg: #0fe54b;
+  --info-bg: #031a0c;
+  --info-border: #0fe54b;
+  --info-text: #0fe54b;
+  --success-bg: #021208;
+  --success-border: #0fe54b;
+  --success-text: #0fe54b;
+  --legal-warning-bg: #120202;
+  --legal-warning-border: #300808;
+  --legal-warning-text: #ff8a8a;
+  --shadow-color: rgba(0, 0, 0, 0.9);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+}  --tag-outline: #141414;
   --tag-fg: #7ddf9d;
 
   --info-bg: #031a0c;
