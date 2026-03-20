@@ -2,12 +2,12 @@ The contents of this code will be referred to in two branches: "code" generally 
 
 "code" is given fully to the public domain under [The Unlicense](https://unlicense.org)
 
-`This is free and unencumbered software released into the public domain.`
+> This is free and unencumbered software released into the public domain.
 
-`Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.`
+> Anyone is free to copy, modify, publish, use, compile, sell, or
+> distribute this software, either in source code form or as a compiled
+> binary, for any purpose, commercial or non-commercial, and by any
+> means.
 
 `In jurisdictions that recognize copyright laws, the author or authors
 of this software dedicate any and all copyright interest in the
@@ -32,3 +32,7 @@ OTHER DEALINGS IN THE SOFTWARE.`
 If permission is granted by the Author(s), credit must be given duly to the Author(s).
 Permission can be asked for by simply contacting the Author(s) of a page.
 As for my own contact info, that is available [here](https://gc-bio.vercel.app/social/)
+
+(This refers to previous versions of this project as well)
+
+All Rights Reserved 2026© GreenCat777
